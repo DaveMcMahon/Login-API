@@ -6,11 +6,11 @@
 - Add a Book to the users TBR.
  - Mark a Book as Read.
 
-#### As the project grows, this ReadMe will get updated to included relevant frameworks and tools used.
-
 ### Frameworks and Tools:
 
 - actix-web
 - rust
 - tokio
 - gitactions
+
+#### As the project grows, this ReadMe will get updated to included relevant frameworks and tools used.
