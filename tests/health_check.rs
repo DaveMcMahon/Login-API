@@ -1,5 +1,22 @@
-use login_api::run;
+use login_api::startup::run;
 use std::net::TcpListener;
+
+#[tokio::test]
+async fn check_200_status_from_login() {
+    let address = spawn_app();
+    let client = reqwest::Client::new();
+
+    let body = "name=username%20secondname&email=username%40domain.com";
+    let response = client
+        .post(&format!("{}/login", &address))
+        .header("Content-Type", "application/x-www-form-urlencoded")
+        .body(body)
+        .send()
+        .await
+        .expect("Request failed");
+
+    assert_eq!(200, response.status().as_u16());
+}
 
 #[tokio::test]
 async fn health_check_works() {

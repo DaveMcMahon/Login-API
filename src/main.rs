@@ -1,6 +1,7 @@
-use login_api::run;
 use std::net::TcpListener;
 use std::process;
+
+use login_api::startup::run;
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
