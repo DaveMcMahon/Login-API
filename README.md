@@ -12,5 +12,6 @@
 - rust
 - tokio
 - gitactions
+- serde
 
 #### As the project grows, this ReadMe will get updated to included relevant frameworks and tools used.
