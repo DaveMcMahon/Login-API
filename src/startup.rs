@@ -6,6 +6,7 @@ use crate::routes::health_check::health_check;
 use crate::routes::logins::login;
 
 pub fn run(listener: TcpListener) -> Result<Server, std::io::Error> {
+
     let server = HttpServer::new(move || {
         App::new()
             .route("/health_check", web::get().to(health_check))
