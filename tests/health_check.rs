@@ -19,6 +19,35 @@ async fn check_200_status_from_login() {
 }
 
 #[tokio::test]
+async fn check_400_status_from_logon() {
+    let address = spawn_app();
+    let client = reqwest::Client::new();
+
+    let incorrect = vec![
+        ("name=david%20mcmahon", "no email specified"),
+        ("email=davidmcmhn%40gmail.com", "no name specified"),
+        ("", "no name or email specified"),
+    ];
+
+    for (incorrect_body, error_message) in incorrect {
+        let response = client
+            .post(&format!("{}/login", &address))
+            .header("Content-Type", "application/x-www-form-urlencoded")
+            .body(incorrect_body)
+            .send()
+            .await
+            .expect("Request failed");
+
+        assert_eq!(
+            400,
+            response.status().as_u16(),
+            "API login call did not fail when payload was {}",
+            error_message
+        );
+    }
+}
+
+#[tokio::test]
 async fn health_check_works() {
     let address = spawn_app();
 
