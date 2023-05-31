@@ -1,0 +1,7 @@
+app_port: 8081
+database:
+  username: postgres
+  password: password
+  host: localhost
+  port: 5433
+  database_name: booklist
