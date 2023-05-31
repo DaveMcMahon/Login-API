@@ -18,7 +18,7 @@ fi
 DB_USERNAME="${DB_USERNAME:=postgres}"
 DB_PASSWORD="${DB_PASSWORD:=password}"
 DB_HOST="${DB_HOST:=localhost}"
-DB_PORT="${DB_PORT:=5432}"
+DB_PORT="${DB_PORT:=5433}"
 DB_NAME="${DB_NAME:=booklist}"
 
 if [[ -z "${SKIP_DOCKER}" ]]; then
