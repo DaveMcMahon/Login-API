@@ -6,6 +6,15 @@
 - Add a Book to the users TBR.
  - Mark a Book as Read.
 
+## Follow Along:
+- Clone the repo
+- Navigate into the project directory
+- Execute the initdb.sh script to set environment variables and spin up a Docker instance
+    * ./scripts/initdb.sh
+    * Note: If you want to skip the Docker run step, set SKIP_DOCKER=1
+        SKIP_DOCKER=1 ./scripts/initdb.sh
+- Cargo run
+
 ### Frameworks and Tools:
 
 - actix-web
