@@ -12,7 +12,7 @@
 - Execute the initdb.sh script to set environment variables and spin up a Docker instance
     * ./scripts/initdb.sh
     * Note: If you want to skip the Docker run step, set SKIP_DOCKER=1
-        SKIP_DOCKER=1 ./scripts/initdb.sh
+        - SKIP_DOCKER=1 ./scripts/initdb.sh
 - Cargo run
 
 ### Frameworks and Tools:
