@@ -26,9 +26,9 @@ pub async fn login(form: web::Form<FormData>, connection_pool: web::Data<PgPool>
     .await
     {
         Ok(_) => {
-                log::info!("Users details weree stored successfulyly in the database");
-                HttpResponse::Ok().finish()
-            },
+            log::info!("Users details weree stored successfulyly in the database");
+            HttpResponse::Ok().finish()
+        }
         Err(e) => {
             log::error!("Failed to execute query -> {:?}", e);
             HttpResponse::InternalServerError().finish()
