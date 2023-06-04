@@ -10,6 +10,8 @@ pub struct FormData {
 }
 
 pub async fn login(form: web::Form<FormData>, connection_pool: web::Data<PgPool>) -> HttpResponse {
+    log::info!("Logging new users logon details in the Database");
+
     match sqlx::query!(
         r#"
         INSERT INTO logins (id, email, name, loggedin_at)
@@ -23,9 +25,12 @@ pub async fn login(form: web::Form<FormData>, connection_pool: web::Data<PgPool>
     .execute(connection_pool.get_ref())
     .await
     {
-        Ok(_) => HttpResponse::Ok().finish(),
+        Ok(_) => {
+                log::info!("Users details weree stored successfulyly in the database");
+                HttpResponse::Ok().finish()
+            },
         Err(e) => {
-            println!("Failed to execute query -> {}", e);
+            log::error!("Failed to execute query -> {:?}", e);
             HttpResponse::InternalServerError().finish()
         }
     }

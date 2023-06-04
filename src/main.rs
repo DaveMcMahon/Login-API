@@ -2,9 +2,13 @@ use login_api::configuration::get_configuration;
 use login_api::startup::run;
 use sqlx::PgPool;
 use std::net::TcpListener;
+use env_logger::Env;
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
+    env_logger::init();
+    env_logger::Builder::from_env(Env::default().default_filter_or("info"));
+
     let database_config = get_configuration().expect("Failed to read config from config.yaml");
     let connection_pool = PgPool::connect(&database_config.database.get_connection_string())
         .await
