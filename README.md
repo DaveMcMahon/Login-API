@@ -36,4 +36,8 @@
 #### Integration tests using randomized ports for the http server and randomized database names by prefixing a UUID to their name in the connection string.
 - Note: The DB instances created for each test run are not deleted afterwards, if performance is an issue we can add a cleanup.
 
+#### Request ID is now attached to each request and the logs can be tied together nicely
+![Screenshot 2023-06-06 at 19 21 58](https://github.com/DaveMcMahon/Login-API/assets/16767214/708b1823-3297-4a29-8a46-a7e9891664b0)
+
+
 #### As the project grows, this ReadMe will get updated to included relevant frameworks and tools used.
